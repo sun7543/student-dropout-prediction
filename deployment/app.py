@@ -2,7 +2,7 @@ import joblib
 import streamlit as st
 import pandas as pd
 
-pipeline = joblib.load('./dropout_pipeline.joblib')
+pipeline = joblib.load("./deployment/dropout_pipeline.joblib")
 st.set_page_config(page_title="Student Dropout Prediction", layout="centered")
 
 def predict(age, year_of_study, department, residence_type, attendance_percentage, study_per_day, Previous_GPA, Backlogs, Screen_Time_Hours, Part_Time_Job, Family_Income_Bracket, Financial_Stress_Score, Family_Support_Score, Stress_Level, Anxiety_Score, Motivation_Score, Counseling_Access):
