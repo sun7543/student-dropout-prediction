@@ -79,7 +79,9 @@ with col1:
 with col2:
     Counseling_Access = st.selectbox("Counseling access", ["No", "Yes"])
 
-if st.button("Predict", type="primary"):
+predict_col, result_col = st.columns([1, 3])
+
+if predict_col.button("Predict", type="primary"):
     prediction = predict(
         age,
         year_of_study,
@@ -99,4 +101,9 @@ if st.button("Predict", type="primary"):
         Motivation_Score,
         Counseling_Access,
     )
-    st.text_input("Predicted dropout risk", value=prediction, disabled=True)
+    result_col.text_input(
+        "Predicted dropout risk",
+        value=prediction,
+        disabled=True,
+        label_visibility="collapsed",
+    )
