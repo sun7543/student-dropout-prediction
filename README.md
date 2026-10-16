@@ -6,7 +6,7 @@
 | Residence_Type | 3 ประเภท | Selectbox | — |
 | Attendance_Percent | 30.0–100.0 | Slider | 0.1 หรือ 1 |
 | Study_Hours_Per_Day | 0.0–8.1 | Slider | 0.1 |
-| Previous_GPA | 2.42–10.00 | Number input / Slider | 0.01 |
+| Previous_GPA | 2.42–10.00 (โมเดล) | Slider 0–4; แปลงเป็น 0–10 ก่อนทำนายโดยคูณ 2.5 | 0.01 |
 | Backlogs | 0–6 | Slider | 1 |
 | Screen_Time_Hours | 0.5–12.6 | Slider | 0.1 |
 | Part_Time_Job | Yes / No | Radio / Selectbox | — |

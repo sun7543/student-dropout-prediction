@@ -5,7 +5,7 @@ import pandas as pd
 pipeline = joblib.load("./deployment/dropout_pipeline.joblib")
 st.set_page_config(page_title="Student Dropout Prediction", layout="centered")
 
-def predict(age, year_of_study, department, residence_type, attendance_percentage, study_per_day, Previous_GPA, Backlogs, Screen_Time_Hours, Part_Time_Job, Family_Income_Bracket, Financial_Stress_Score, Family_Support_Score, Stress_Level, Anxiety_Score, Motivation_Score, Counseling_Access):
+def predict(age, year_of_study, department, residence_type, attendance_percentage, study_per_day, previous_gpa_4, Backlogs, Screen_Time_Hours, Part_Time_Job, Family_Income_Bracket, Financial_Stress_Score, Family_Support_Score, Stress_Level, Anxiety_Score, Motivation_Score, Counseling_Access):
     features = {
         "Age": age,
         "Year_of_Study": year_of_study,
@@ -13,7 +13,7 @@ def predict(age, year_of_study, department, residence_type, attendance_percentag
         "Residence_Type": residence_type,
         "Attendance_Percent": attendance_percentage,
         "Study_Hours_Per_Day": study_per_day,
-        "Previous_GPA": Previous_GPA,
+        "Previous_GPA": previous_gpa_4 * 2.5,
         "Backlogs": Backlogs,
         "Screen_Time_Hours": Screen_Time_Hours,
         "Part_Time_Job": Part_Time_Job,
@@ -49,7 +49,7 @@ with col3:
 
 col1, col2, col3 = st.columns(3)
 with col1:
-    Previous_GPA = st.slider("Previous GPA", min_value=2.42, max_value=10.0, value=7.0, step=0.01)
+    previous_gpa_4 = st.slider("Previous GPA (0–4)", min_value=0.0, max_value=4.0, value=2.8, step=0.01)
 with col2:
     Backlogs = st.slider("Backlogs", min_value=0, max_value=6, value=0, step=1)
 with col3:
@@ -89,7 +89,7 @@ if predict_col.button("Predict", type="primary"):
         residence_type,
         attendance_percentage,
         study_per_day,
-        Previous_GPA,
+        previous_gpa_4,
         Backlogs,
         Screen_Time_Hours,
         Part_Time_Job,
